@@ -1,3 +1,5 @@
+import { Interes } from './Interes';
+
 export class Persona {
     //Obligatorios
     codigo:number;
@@ -13,7 +15,7 @@ export class Persona {
     ciudad:string;
     telefono:number;
     hijos:boolean;
-    //intereses: Array<Interes>
+    intereses:Array<Interes>;
     //persona: { codigo: number; nombre: string; foto: string; edad: number; email: string; sexo: string; numVotos: number; };
 
     constructor(codigo:number, nombre:string, foto:string, edad:number, email:string, sexo:string,
@@ -27,6 +29,7 @@ export class Persona {
         this.email = email;
         this.sexo = sexo;
         this.numVotos = 0;
+        this.intereses = [];
         //Opcionales
         if(direccion){
             this.direccion = direccion;
