@@ -7,9 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 import { MatToolbarModule } from '@angular/material';
-import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
-import { PersonaComponentComponent } from './persona-component/persona-component.component';
+import { PersonaListaComponent } from './persona-lista/persona-lista.component';
+
 
 
 @NgModule({
@@ -17,14 +18,14 @@ import { PersonaComponentComponent } from './persona-component/persona-component
     AppComponent,
     NavigationBarComponent,
     ListaUsuariosComponent,
-    PersonaComponentComponent
+    PersonaListaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatListModule
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,7 @@ export class ListaUsuariosComponent implements OnInit {
 
   constructor() { 
     let i = 0;
-    while( i <=6){
+    while( i <=5){
       this.personas.push(this.persona);
       i++;
     }
