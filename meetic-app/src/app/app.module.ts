@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 import { MatToolbarModule } from '@angular/material';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { PersonaListaComponent } from './persona-lista/persona-lista.component';
 
@@ -25,7 +26,8 @@ import { PersonaListaComponent } from './persona-lista/persona-lista.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

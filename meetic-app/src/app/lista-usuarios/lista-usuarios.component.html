@@ -1,16 +1,7 @@
 <mat-grid-list cols="2" rowHeight="2:1">  
-    <mat-grid-tile><app-persona-lista *ngFor="let persona of personas"		 
-  [persona]="persona"></app-persona-lista></mat-grid-tile> 
+  <mat-grid-tile *ngFor="let persona of personas" >
+      <mat-card>
+        <app-persona-lista [persona]="persona" ></app-persona-lista>
+      </mat-card>
+  </mat-grid-tile>
 </mat-grid-list>
-
-<!-- <mat-grid-list cols="2" rowHeight="2:1">  
-  <app-persona-lista *ngFor="let persona of personas"		 
-[persona]="persona"></app-persona-lista>
-</mat-grid-list> -->
-
-<!-- <mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list> -->
