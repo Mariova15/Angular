@@ -4,13 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { NavigationBarComponent } from './componentes/navigation-bar/navigation-bar.component';
 
 import { MatToolbarModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material';
-import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
-import { PersonaListaComponent } from './persona-lista/persona-lista.component';
+
+import { ListaUsuariosComponent } from './componentes/persona/lista-personas/lista-personas.component';
+import { PersonaListaComponent } from './componentes/persona/persona-lista/persona-lista.component';
 
 
 

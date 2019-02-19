@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Persona } from '../modelo/Persona';
+import { Persona } from 'src/app/modelo/Persona';
 
 @Component({
-  selector: 'app-lista-usuarios',
-  templateUrl: './lista-usuarios.component.html',
-  styleUrls: ['./lista-usuarios.component.css']
+  selector: 'app-lista-personas',
+  templateUrl: './lista-personas.component.html',
+  styleUrls: ['./lista-personas.component.css']
 })
 export class ListaUsuariosComponent implements OnInit {
 
