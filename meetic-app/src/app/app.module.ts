@@ -10,7 +10,7 @@ import { MatToolbarModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material';
 
-import { ListaUsuariosComponent } from './componentes/persona/lista-personas/lista-personas.component';
+import { ListaPersonasComponent } from './componentes/persona/lista-personas/lista-personas.component';
 import { PersonaListaComponent } from './componentes/persona/persona-lista/persona-lista.component';
 
 
@@ -19,7 +19,7 @@ import { PersonaListaComponent } from './componentes/persona/persona-lista/perso
   declarations: [
     AppComponent,
     NavigationBarComponent,
-    ListaUsuariosComponent,
+    ListaPersonasComponent,
     PersonaListaComponent
   ],
   imports: [
