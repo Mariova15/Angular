@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material';
 
 import { ListaPersonasComponent } from './componentes/persona/lista-personas/lista-personas.component';
 import { PersonaListaComponent } from './componentes/persona/persona-lista/persona-lista.component';
+import { PersonaDetalleComponent } from './componentes/persona/persona-detalle/persona-detalle.component';
 
 
 
@@ -20,7 +21,8 @@ import { PersonaListaComponent } from './componentes/persona/persona-lista/perso
     AppComponent,
     NavigationBarComponent,
     ListaPersonasComponent,
-    PersonaListaComponent
+    PersonaListaComponent,
+    PersonaDetalleComponent
   ],
   imports: [
     BrowserModule,
