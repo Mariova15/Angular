@@ -11,11 +11,13 @@ export class PersonaDetalleComponent implements OnInit {
 
   persona:Persona;
 
+  prueba:string;
+
   constructor(private _route:ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.persona = this._route.snapshot.params.get('info');
+    this.prueba = this._route.snapshot.paramMap.get('info');
 
   }
 
