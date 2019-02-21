@@ -21,8 +21,8 @@ export class ListaUsuariosService {
     return LISTA_PERSONAS;
   }
 
-  getPersona(nombre:string):Persona{
-    return LISTA_PERSONAS.find(user => user.nombre === nombre);
+  getPersona(codigo:number):Persona{
+    return LISTA_PERSONAS.find(persona => persona.codigo === codigo);
   }
 
   annadirPersona(user:Persona){

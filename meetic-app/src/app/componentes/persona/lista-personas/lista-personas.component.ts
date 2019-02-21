@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/modelo/Persona';
 import { Router } from '@angular/router';
 import { ListaUsuariosService } from 'src/app/lista-personas.service';
+import { Interes } from 'src/app/modelo/Interes';
 
 @Component({
   selector: 'app-lista-personas',
@@ -16,7 +17,7 @@ export class ListaPersonasComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listaPersonas = this._servicioListaPersonas.getListaPersonas();
+    this.listaPersonas = this._servicioListaPersonas.getListaPersonas();    
   }
 
 }

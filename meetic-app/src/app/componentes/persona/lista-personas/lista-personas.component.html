@@ -1,7 +1,7 @@
 <mat-grid-list cols="2" rowHeight="2:1">  
   <mat-grid-tile *ngFor="let persona of listaPersonas" >
       <mat-card>
-        <app-persona-lista [persona]="persona" [routerLink] = "['/lista-personas', persona.nombre + '-' + persona.edad]" ></app-persona-lista>
+        <app-persona-lista [persona]="persona" [routerLink] = "['/lista-personas', persona.codigo]" ></app-persona-lista>
       </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

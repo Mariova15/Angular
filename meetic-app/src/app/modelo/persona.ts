@@ -26,11 +26,11 @@ export class Persona {
         this.apellido = apellido;
         this.foto = foto;
         this.edad = edad;
-        this.edad = edad;
         this.email = email;
         this.sexo = sexo;
         this.numVotos = 0;
         this.intereses = [];
+
         //Opcionales
         if(direccion){
             this.direccion = direccion;
