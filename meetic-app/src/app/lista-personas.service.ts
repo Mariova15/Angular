@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Persona } from './modelo/Persona';
 
-const urlFoto:string = "https://openclipart.org/download/247324/abstract-user-flat-1.svg";
+const urlFoto:string = "https://bit.ly/2sNhJiO";
 
-const LISTA_PERSONAS:Persona[]=[new Persona(0,"El","El",urlFoto,0,"string","string","string"),
-new Persona(1,"La","La",urlFoto,0,"string","string","string"),
-new Persona(2,"Lo","Lo",urlFoto,0,"string","string","string"),
-new Persona(3,"He","He",urlFoto,0,"string","string","string"),
-new Persona(4,"She","She",urlFoto,0,"string","string","string"),
-new Persona(5,"It","It",urlFoto,0,"string","string","string")];
+const LISTA_PERSONAS:Persona[]=[new Persona(0,"Lisa","Linke",urlFoto,37,"LisaJLinke@gmail.com","Femenino","Sama"),
+new Persona(1,"Benildo","Mendoza",urlFoto,27,"BenildoMendozaPatino@gmail.com","Masculino","La felguera"),
+new Persona(2,"Jacob","Pizarro",urlFoto,34,"JacobPizarroSotelo@gmail.com","Masculino","Sama"),
+new Persona(3,"Mirabel","Díaz",urlFoto,26,"MirabelDiaz@gmail.com","Femenino","Sama"),
+new Persona(4,"Sixto","Ortega",urlFoto,22,"SixtoAltamiranoOrtega@gmail.com","Masculino","La felguera"),
+new Persona(5,"Jacqueline","Valentín",urlFoto,28,"JacquelineValentin@gmail.com","Femenino","Sama")];
 
 @Injectable({
   providedIn: 'root'

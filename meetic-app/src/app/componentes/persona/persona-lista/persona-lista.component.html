@@ -1,5 +1,7 @@
 <div>
-  <p><img class="foto" src={{persona.foto}}></p>
-  <p>{{persona.nombre}} LIKE </p>  
-  <p>{{persona.edad}}</p>
+  <img mat-card-image class="foto" src={{persona.foto}}>
+  <p>{{persona.nombre}} {{persona.numVotos}}
+    <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+  </p>  
+  <p>{{persona.edad}} años</p>
 </div>

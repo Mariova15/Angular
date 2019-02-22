@@ -1,5 +1,8 @@
 <div>
-  <h1>{{persona.nombre}}</h1>
+  <h1>{{persona.nombre}}</h1> 
+    <button mat-fab (click)="votar()">
+      <p> {{persona.numVotos}} <mat-icon>favorite</mat-icon></p>
+    </button>
   <h2>{{persona.edad}} años, {{persona.ciudad}}</h2>
   <img src={{persona.foto}}/>
   <div>

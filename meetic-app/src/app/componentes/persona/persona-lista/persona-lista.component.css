@@ -1,5 +1,7 @@
 .foto{
+    object-fit: cover;
     width: 25%;
+    height: 25%;    
 }
 
 div{

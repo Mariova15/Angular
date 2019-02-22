@@ -12,15 +12,14 @@ export class PersonaDetalleComponent implements OnInit {
 
   persona:Persona;
 
-  //prueba:string;
-
   constructor(private _route:ActivatedRoute, private _servicioListaPersonas:ListaUsuariosService) { }
 
   ngOnInit() {
-
-    //this.prueba = this._route.snapshot.paramMap.get('info');
     this.persona = this._servicioListaPersonas.getPersona(Number(this._route.snapshot.paramMap.get('info')));
+  }
 
+  votar(){
+    this.persona.numVotos ++;
   }
 
 }

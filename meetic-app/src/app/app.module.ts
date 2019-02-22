@@ -9,6 +9,7 @@ import { NavigationBarComponent } from './componentes/navigation-bar/navigation-
 import { MatToolbarModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material';
+import {MatIcon} from '@angular/material';
 
 import { ListaPersonasComponent } from './componentes/persona/lista-personas/lista-personas.component';
 import { PersonaListaComponent } from './componentes/persona/persona-lista/persona-lista.component';
@@ -22,7 +23,8 @@ import { PersonaDetalleComponent } from './componentes/persona/persona-detalle/p
     NavigationBarComponent,
     ListaPersonasComponent,
     PersonaListaComponent,
-    PersonaDetalleComponent
+    PersonaDetalleComponent,
+    MatIcon
   ],
   imports: [
     BrowserModule,
