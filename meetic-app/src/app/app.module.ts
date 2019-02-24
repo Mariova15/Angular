@@ -10,10 +10,16 @@ import { MatToolbarModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material';
 import {MatIcon} from '@angular/material';
+import {MatInputModule} from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 import { ListaPersonasComponent } from './componentes/persona/lista-personas/lista-personas.component';
 import { PersonaListaComponent } from './componentes/persona/persona-lista/persona-lista.component';
 import { PersonaDetalleComponent } from './componentes/persona/persona-detalle/persona-detalle.component';
+import { ListaInteresesComponent } from './componentes/interes/lista-intereses/lista-intereses.component';
+import { CrearInteresComponent } from './componentes/interes/crear-interes/crear-interes.component';
+import { InteresListaComponent } from './componentes/interes/interes-lista/interes-lista.component';
 
 
 
@@ -21,10 +27,13 @@ import { PersonaDetalleComponent } from './componentes/persona/persona-detalle/p
   declarations: [
     AppComponent,
     NavigationBarComponent,
+    MatIcon,
     ListaPersonasComponent,
     PersonaListaComponent,
-    PersonaDetalleComponent,
-    MatIcon
+    PersonaDetalleComponent,    
+    ListaInteresesComponent,
+    CrearInteresComponent,
+    InteresListaComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,10 @@ import { PersonaDetalleComponent } from './componentes/persona/persona-detalle/p
     BrowserAnimationsModule,
     MatToolbarModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

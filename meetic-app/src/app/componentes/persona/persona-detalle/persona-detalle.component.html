@@ -1,8 +1,10 @@
 <div>
   <h1>{{persona.nombre}}</h1> 
-    <button mat-fab (click)="votar()">
-      <p> {{persona.numVotos}} <mat-icon>favorite</mat-icon></p>
+    <button mat-fab class="buttonFav" color="primary" (click)="votar()">
+        <mat-icon>favorite</mat-icon>  
+        <p>{{persona.numVotos}}</p>    
     </button>
+    
   <h2>{{persona.edad}} años, {{persona.ciudad}}</h2>
   <img src={{persona.foto}}/>
   <div>
@@ -13,5 +15,15 @@
   </div>
   <div>
     <h1>Mis intereses</h1>
-  </div>
+    <button mat-fab [routerLink] = "['/crear-interes',persona.codigo]" >
+      <mat-icon>add</mat-icon>
+    </button>
+    <mat-grid-list cols="1" rowHeight="2:1">  
+      <mat-grid-tile *ngFor="let interes of persona.intereses" >
+          <mat-card>        
+            <app-interes-lista [interes]="interes" >
+            </app-interes-lista>       
+          </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
 </div>

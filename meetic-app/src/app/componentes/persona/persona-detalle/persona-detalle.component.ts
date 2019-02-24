@@ -22,4 +22,8 @@ export class PersonaDetalleComponent implements OnInit {
     this.persona.numVotos ++;
   }
 
+  prueba(){
+    alert(this.persona.intereses[0].nombreInteres);
+  }
+
 }

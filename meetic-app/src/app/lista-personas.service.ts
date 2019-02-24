@@ -10,6 +10,8 @@ new Persona(3,"Mirabel","Díaz",urlFoto,26,"MirabelDiaz@gmail.com","Femenino","S
 new Persona(4,"Sixto","Ortega",urlFoto,22,"SixtoAltamiranoOrtega@gmail.com","Masculino","La felguera"),
 new Persona(5,"Jacqueline","Valentín",urlFoto,28,"JacquelineValentin@gmail.com","Femenino","Sama")];
 
+const usuario:Persona = new Persona(0,"string","string",urlFoto,0,"string","string","string");
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,5 +31,8 @@ export class ListaUsuariosService {
     LISTA_PERSONAS.push(user);
   }
 
+  getUsuario():Persona{
+    return usuario;
+  }
 
 }

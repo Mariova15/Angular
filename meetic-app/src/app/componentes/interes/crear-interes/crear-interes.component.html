@@ -1,0 +1,12 @@
+<form class="example-form">
+<mat-form-field>
+    <input matInput placeholder="Nombre del interes" name=[nomInteres] [(ngModel)] = "nomInteres">
+</mat-form-field>
+<mat-form-field>
+    <input matInput placeholder="Descripción" name=[descripcion] [(ngModel)] = "descripcion">
+</mat-form-field>
+<mat-form-field>
+    <input matInput placeholder="Importancia" name=[importancia]  [(ngModel)] = "importancia">
+</mat-form-field>
+<button mat-button (click)="annadirInteres()">Añadir interes</button>
+</form>
