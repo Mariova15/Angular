@@ -13,6 +13,7 @@ import {MatIcon} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { ListaPersonasComponent } from './componentes/persona/lista-personas/lista-personas.component';
 import { PersonaListaComponent } from './componentes/persona/persona-lista/persona-lista.component';
@@ -44,7 +45,8 @@ import { InteresListaComponent } from './componentes/interes/interes-lista/inter
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
