@@ -27,4 +27,7 @@ export class FiltrarPersonasComponent implements OnInit {
         Number(this.edadInicio), Number(this.edadFin));
         alert(this.listatemp.length);
   }
+  eliminarFiltro(){
+    this._servicioListaPersonas.eliminarFiltro();
+  }
 }

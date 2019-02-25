@@ -82,6 +82,10 @@ export class ListaUsuariosService {
     return listaPersonasFiltradas;
   }
 
+  eliminarFiltro(){
+    listaPersonasFiltradas = LISTA_PERSONAS;
+  }
+
   getListaPersonasFiltradas():Persona[]{
     return listaPersonasFiltradas;
   }

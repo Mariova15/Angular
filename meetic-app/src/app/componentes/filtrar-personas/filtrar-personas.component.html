@@ -22,3 +22,4 @@
   <input matInput placeholder="45" name=[edadFin] [(ngModel)] = "edadFin">
 </mat-form-field>
 <button mat-button (click)="filtrar()">Filtrar</button>
+<button mat-button (click)="eliminarFiltro()" [routerLink]="['/home']" >Quitar filtro</button>
