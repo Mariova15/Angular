@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { ListaPersonasComponent } from './componentes/persona/lista-personas/lista-personas.component';
 import { PersonaListaComponent } from './componentes/persona/persona-lista/persona-lista.component';
@@ -21,6 +22,7 @@ import { PersonaDetalleComponent } from './componentes/persona/persona-detalle/p
 import { ListaInteresesComponent } from './componentes/interes/lista-intereses/lista-intereses.component';
 import { CrearInteresComponent } from './componentes/interes/crear-interes/crear-interes.component';
 import { InteresListaComponent } from './componentes/interes/interes-lista/interes-lista.component';
+import { FiltrarPersonasComponent } from './componentes/filtrar-personas/filtrar-personas.component';
 
 
 
@@ -34,7 +36,8 @@ import { InteresListaComponent } from './componentes/interes/interes-lista/inter
     PersonaDetalleComponent,    
     ListaInteresesComponent,
     CrearInteresComponent,
-    InteresListaComponent
+    InteresListaComponent,
+    FiltrarPersonasComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { InteresListaComponent } from './componentes/interes/interes-lista/inter
     MatButtonModule,
     MatInputModule,
     FormsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

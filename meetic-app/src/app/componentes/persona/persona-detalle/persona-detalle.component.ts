@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/modelo/Persona';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ListaUsuariosService } from 'src/app/lista-personas.service';
 
 @Component({
@@ -12,18 +12,18 @@ export class PersonaDetalleComponent implements OnInit {
 
   persona:Persona;
 
-  constructor(private _route:ActivatedRoute, private _servicioListaPersonas:ListaUsuariosService) { }
+  constructor(private _route:ActivatedRoute,  private _servicioListaPersonas:ListaUsuariosService) { }
 
   ngOnInit() {
-    this.persona = this._servicioListaPersonas.getPersona(Number(this._route.snapshot.paramMap.get('info')));
+    if(Number(this._route.snapshot.paramMap.get('info')) === -1){
+      this.persona = this._servicioListaPersonas.getUsuario();
+    }else{
+      this.persona = this._servicioListaPersonas.getPersona(Number(this._route.snapshot.paramMap.get('info')));
+    }    
   }
 
   votar(){
     this.persona.numVotos ++;
-  }
-
-  prueba(){
-    alert(this.persona.intereses[0].nombreInteres);
   }
 
 }

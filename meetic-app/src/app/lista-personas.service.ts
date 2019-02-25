@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Persona } from './modelo/Persona';
+import { Interes } from './modelo/Interes';
 
 const urlFoto:string = "https://bit.ly/2sNhJiO";
+
+let listaPersonasFiltradas:Persona[];
 
 const LISTA_PERSONAS:Persona[]=[new Persona(0,"Lisa","Linke",urlFoto,37,"LisaJLinke@gmail.com","Femenino","Sama"),
 new Persona(1,"Benildo","Mendoza",urlFoto,27,"BenildoMendozaPatino@gmail.com","Masculino","La felguera"),
 new Persona(2,"Jacob","Pizarro",urlFoto,34,"JacobPizarroSotelo@gmail.com","Masculino","Sama"),
-new Persona(3,"Mirabel","Díaz",urlFoto,26,"MirabelDiaz@gmail.com","Femenino","Sama"),
+new Persona(3,"Mirabel","Díaz",urlFoto,26,"MirabelDiaz@gmail.com","Femenino","La felguera"),
 new Persona(4,"Sixto","Ortega",urlFoto,22,"SixtoAltamiranoOrtega@gmail.com","Masculino","La felguera"),
 new Persona(5,"Jacqueline","Valentín",urlFoto,28,"JacquelineValentin@gmail.com","Femenino","Sama")];
 
-const usuario:Persona = new Persona(0,"string","string",urlFoto,0,"string","string","string");
+const usuario:Persona = new Persona(0,"string","string",urlFoto,0,"string","string","La felguera");
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListaUsuariosService {
+
+  
 
   constructor() { }
 
@@ -27,12 +32,39 @@ export class ListaUsuariosService {
     return LISTA_PERSONAS.find(persona => persona.codigo === codigo);
   }
 
-  annadirPersona(user:Persona){
-    LISTA_PERSONAS.push(user);
-  }
-
   getUsuario():Persona{
     return usuario;
+  }
+
+  getListaPersonasFiltradaPorciudad(nomciudad:string):Persona[]{
+    listaPersonasFiltradas = [];
+
+    LISTA_PERSONAS.forEach(persona => {
+      if(persona.direccion === nomciudad){
+        listaPersonasFiltradas.push(persona);
+      }
+    });    
+    return listaPersonasFiltradas;
+  }
+
+  getListaPersonasFiltradaCompleto(localidad:string, interesUsuario:Interes[], 
+    edadInicio:number, edadFin:number):Persona[]{
+    listaPersonasFiltradas = [];
+
+    LISTA_PERSONAS.forEach(persona => {
+      persona.intereses.forEach(interesPersona => {
+        interesUsuario.forEach(interesUser => {
+          if(interesUser.nombreInteres === interesPersona.nombreInteres &&
+            localidad ===  persona.direccion && persona.edad >= edadInicio 
+            && persona.edad <= edadFin){
+              if(!listaPersonasFiltradas.includes(persona)){
+              listaPersonasFiltradas.push(persona);
+            }            
+          }
+        });
+      });
+    });    
+    return listaPersonasFiltradas;
   }
 
 }

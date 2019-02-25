@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgModule } from '@angular/core';
-import { MatToolbarModule } from '@angular/material';
+import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common' ;
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,20 +7,20 @@ import { MatToolbarModule } from '@angular/material';
   styleUrls: ['./navigation-bar.component.css'],
 })
 
-@NgModule({
-  imports: [
-    MatToolbarModule
-  ],
-  exports: [
-    MatToolbarModule
-  ]
-})
-
 export class NavigationBarComponent implements OnInit {
 
-  constructor() { }
+  @Input() estado:boolean;
+  @Input() nomCiudad:string;
+  @Input() contador:string;
+  @Input() emparejar:string;
+
+  constructor(private _location: Location) { }
 
   ngOnInit() {
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
 }
