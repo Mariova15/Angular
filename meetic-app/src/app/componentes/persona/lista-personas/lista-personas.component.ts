@@ -18,8 +18,12 @@ export class ListaPersonasComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioApplicacion = this._servicioListaPersonas.getUsuario();
-    //this.listaPersonas = this._servicioListaPersonas.getListaPersonas();
-    this.listaPersonas = this._servicioListaPersonas.getListaPersonasFiltradaPorciudad(this.usuarioApplicacion.direccion);
+    if(this._servicioListaPersonas.getListaPersonasFiltradas() != null){
+      this.listaPersonas = this._servicioListaPersonas.getListaPersonasFiltradas();
+    }
+    else{
+      this.listaPersonas = this._servicioListaPersonas.getListaPersonasFiltradaPorciudad(this.usuarioApplicacion.direccion);
+    }
   }
 
 }

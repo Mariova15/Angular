@@ -14,14 +14,17 @@ export class FiltrarPersonasComponent implements OnInit {
   edadInicio: string;
   edadFin: string;
   interesesUser: string[];
+  listatemp = [];
 
   constructor(private _servicioListaPersonas: ListaUsuariosService) {}
 
   ngOnInit() {}
 
   filtrar() {
-    alert(this.localidad + " " + this.interesesUser[0]);
-    this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidad,this.interesesUser,
-      Number(this.edadInicio), Number(this.edadFin));
+    /*this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidad,this.interesesUser,
+      Number(this.edadInicio), Number(this.edadFin));*/
+     this.listatemp = this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidad,this.interesesUser,
+        Number(this.edadInicio), Number(this.edadFin));
+        alert(this.listatemp.length);
   }
 }
