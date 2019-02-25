@@ -1,1 +1,24 @@
-<app-navigation-bar [estado]="true" ></app-navigation-bar>
+<app-navigation-bar [estado]="true"></app-navigation-bar>
+<h4>Localidad</h4>
+<mat-form-field>
+  <mat-select placeholder="Localidad" multiple name=[localidad] [(ngModel)] = "localidad" >
+    <mat-option *ngFor="let localidad of localidades" [value]="localidad">
+      {{localidad}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<h4>Intereses</h4>
+<mat-form-field>
+  <mat-select placeholder="Interes" multiple name=[interesesUser] [(ngModel)] = "interesesUser" >
+    <mat-option *ngFor="let interes of intereses" [value]="interes">{{interes}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<h4>Edad entre</h4>
+<mat-form-field>
+  <input matInput placeholder="21" name=[edadInicio] [(ngModel)] = "edadInicio">
+</mat-form-field>
+<h4>y</h4>
+<mat-form-field>
+  <input matInput placeholder="45" name=[edadFin] [(ngModel)] = "edadFin">
+</mat-form-field>
+<button mat-button (click)="filtrar()">Filtrar</button>

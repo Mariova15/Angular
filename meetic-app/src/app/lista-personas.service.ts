@@ -47,14 +47,14 @@ export class ListaUsuariosService {
     return listaPersonasFiltradas;
   }
 
-  getListaPersonasFiltradaCompleto(localidad:string, interesUsuario:Interes[], 
+  getListaPersonasFiltradaCompleto(localidad:string, interesUsuario:string[], 
     edadInicio:number, edadFin:number):Persona[]{
     listaPersonasFiltradas = [];
 
     LISTA_PERSONAS.forEach(persona => {
       persona.intereses.forEach(interesPersona => {
         interesUsuario.forEach(interesUser => {
-          if(interesUser.nombreInteres === interesPersona.nombreInteres &&
+          if(interesUser === interesPersona.nombreInteres &&
             localidad ===  persona.direccion && persona.edad >= edadInicio 
             && persona.edad <= edadFin){
               if(!listaPersonasFiltradas.includes(persona)){
