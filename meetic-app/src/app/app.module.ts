@@ -25,6 +25,7 @@ import { ListaInteresesComponent } from './componentes/interes/lista-intereses/l
 import { CrearInteresComponent } from './componentes/interes/crear-interes/crear-interes.component';
 import { InteresListaComponent } from './componentes/interes/interes-lista/interes-lista.component';
 import { FiltrarPersonasComponent } from './componentes/filtrar-personas/filtrar-personas.component';
+import { MandarEmailComponent } from './componentes/mandar-email/mandar-email.component';
 
 
 
@@ -39,7 +40,8 @@ import { FiltrarPersonasComponent } from './componentes/filtrar-personas/filtrar
     ListaInteresesComponent,
     CrearInteresComponent,
     InteresListaComponent,
-    FiltrarPersonasComponent
+    FiltrarPersonasComponent,
+    MandarEmailComponent
   ],
   imports: [
     BrowserModule,

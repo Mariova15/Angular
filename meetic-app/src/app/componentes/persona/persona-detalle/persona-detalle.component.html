@@ -1,13 +1,14 @@
-<app-navigation-bar [estado]="true" ></app-navigation-bar>
+<app-navigation-bar [estado]="true"></app-navigation-bar>
 <div>
-  <h1>{{persona.nombre}}</h1> 
-    <button mat-fab class="buttonFav" color="primary" (click)="votar()">
-        <mat-icon>favorite</mat-icon>  
-        <p>{{persona.numVotos}}</p>    
-    </button>
-    
-  <h2>{{persona.edad}} años, {{persona.ciudad}}</h2>
-  <img src={{persona.foto}}/>
+  <div>
+    <h1>{{persona.nombre}}</h1>
+
+    <mat-icon>favorite</mat-icon>
+    <p>{{persona.numVotos}}</p>
+
+    <h2>{{persona.edad}} años, {{persona.ciudad}}</h2>
+    <img src={{persona.foto}} />
+  </div>
   <div>
     <h1>Información básica</h1>
     <p>Telef: {{persona.telefono}}</p>
@@ -17,15 +18,24 @@
   </div>
   <div>
     <h1>Mis intereses</h1>
-    <button mat-fab [routerLink] = "['/crear-interes',persona.codigo]" >
+    <button mat-fab [routerLink]="['/crear-interes',persona.codigo]">
       <mat-icon>add</mat-icon>
     </button>
     <mat-list style="display:block;width: 38%;margin:auto">
-      <div *ngFor="let interes of persona.intereses">     
-        <app-interes-lista [interes]="interes" [persona]="persona" >
-        </app-interes-lista> 
+      <div *ngFor="let interes of persona.intereses">
+        <app-interes-lista [interes]="interes" [persona]="persona">
+        </app-interes-lista>
       </div>
     </mat-list>
-   
+
+  </div>
+  <div>
+    <button mat-fab color="primary" (click)="votar()">
+      <mat-icon>favorite</mat-icon>
+      <p>{{persona.numVotos}}</p>
+    </button>
+    <button mat-fab color="primary" [routerLink] = "['/mandar-email', persona.codigo]">
+      <mat-icon>email</mat-icon>
+    </button>
   </div>
 </div>

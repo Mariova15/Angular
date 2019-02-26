@@ -1,0 +1,22 @@
+<app-navigation-bar [estado]="true"></app-navigation-bar>
+<div class="example-container">
+    <form class="example-form">
+  <h1>Nombre:</h1>
+  <mat-form-field>
+    <input matInput placeholder="Nombre" value="{{persona.nombre}}" >
+  </mat-form-field>
+  <h1>Correo:</h1>
+  <mat-form-field>
+    <input matInput placeholder="Correo" value="{{persona.email}}" >
+  </mat-form-field>
+  <h1>Mensaje:</h1>
+  <mat-form-field>
+    <textarea matInput placeholder="Mensaje"></textarea>
+  </mat-form-field>
+  <br>
+  <button mat-button (click)="enviarMail()">Añadir interes</button>
+  <button mat-button (click)="backClicked()">Cancelar</button>
+  <br>
+  <h1>{{mensaje}}</h1>
+</form>
+</div>

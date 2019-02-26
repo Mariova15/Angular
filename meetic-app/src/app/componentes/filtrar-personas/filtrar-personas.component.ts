@@ -20,7 +20,6 @@ export class FiltrarPersonasComponent implements OnInit {
   ngOnInit() {}
 
   filtrar() {
-    alert(this.localidadUser);
     this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidadUser,this.interesesUser,
         Number(this.edadInicio), Number(this.edadFin));
         
