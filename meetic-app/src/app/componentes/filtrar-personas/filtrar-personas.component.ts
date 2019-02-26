@@ -8,24 +8,22 @@ import { ListaUsuariosService } from "src/app/lista-personas.service";
 })
 export class FiltrarPersonasComponent implements OnInit {
   localidades: string[] = ["Sama", "La felguera", "El entrego"];
-  intereses: string[] = ["Música", "Cine", "Deporte"];
+  intereses: string[] = ["Música", "Cine", "Deporte","Literatura"];
 
-  localidad: string;
+  localidadUser: string;
   edadInicio: string;
   edadFin: string;
   interesesUser: string[];
-  listatemp = [];
 
   constructor(private _servicioListaPersonas: ListaUsuariosService) {}
 
   ngOnInit() {}
 
   filtrar() {
-    /*this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidad,this.interesesUser,
-      Number(this.edadInicio), Number(this.edadFin));*/
-     this.listatemp = this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidad,this.interesesUser,
+    alert(this.localidadUser);
+    this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidadUser,this.interesesUser,
         Number(this.edadInicio), Number(this.edadFin));
-        alert(this.listatemp.length);
+        
   }
   eliminarFiltro(){
     this._servicioListaPersonas.eliminarFiltro();

@@ -13,18 +13,19 @@
     <p>Telef: {{persona.telefono}}</p>
     <p>Email: {{persona.email}}</p>
     <p>Hijos: {{persona.hijos}}</p>
+    <p>Dirección: {{persona.direccion}}</p>
   </div>
   <div>
     <h1>Mis intereses</h1>
     <button mat-fab [routerLink] = "['/crear-interes',persona.codigo]" >
       <mat-icon>add</mat-icon>
     </button>
-    <mat-grid-list cols="1" rowHeight="2:1">  
-      <mat-grid-tile *ngFor="let interes of persona.intereses" >
-          <mat-card>        
-            <app-interes-lista [interes]="interes" >
-            </app-interes-lista>       
-          </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
+    <mat-list style="display:block;width: 38%;margin:auto">
+      <div *ngFor="let interes of persona.intereses">     
+        <app-interes-lista [interes]="interes" [persona]="persona" >
+        </app-interes-lista> 
+      </div>
+    </mat-list>
+   
+  </div>
 </div>

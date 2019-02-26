@@ -1,5 +1,10 @@
-<div>
-  <p>{{interes.nombreInteres}}</p>  
-  <p>{{interes.descripcion}}</p>
-  <p>{{interes.importancia}}</p>
-</div>
+<mat-list-item>
+  <h3 mat-line>{{ interes.nombreInteres }}</h3>
+  <p mat-line>
+    <span> {{ interes.descripcion }}</span>
+  </p>
+  <div>{{ interes.importancia }}</div>
+  <button mat-icon-button (click)="remove(1)">
+    <mat-icon class="mat-24" (click)="borrarInteres()" onclick="borrarInteres()" >delete</mat-icon>
+  </button>
+</mat-list-item>

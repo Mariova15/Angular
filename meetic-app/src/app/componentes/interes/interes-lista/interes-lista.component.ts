@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Interes } from 'src/app/modelo/Interes';
+import { Persona } from 'src/app/modelo/Persona';
 
 @Component({
   selector: 'app-interes-lista',
@@ -9,10 +10,15 @@ import { Interes } from 'src/app/modelo/Interes';
 export class InteresListaComponent implements OnInit {
 
   @Input() interes:Interes;
+  @Input() persona:Persona;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  borrarInteres(){
+    this.persona.intereses.splice(this.persona.intereses.indexOf(this.interes),1)
   }
 
 }

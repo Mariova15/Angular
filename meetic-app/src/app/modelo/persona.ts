@@ -16,10 +16,9 @@ export class Persona {
     telefono:number;
     hijos:boolean;
     intereses:Array<Interes>;
-    //persona: { codigo: number; nombre: string; foto: string; edad: number; email: string; sexo: string; numVotos: number; };
 
     constructor(codigo:number, nombre:string, apellido:string, foto:string, edad:number, email:string, sexo:string,
-        direccion:string, ciudad?:string, telefono?:number, hijos?:boolean) {
+        direccion?:string, ciudad?:string, telefono?:number, hijos?:boolean) {
         //Obligatorios
         this.codigo = codigo;
         this.nombre = nombre;

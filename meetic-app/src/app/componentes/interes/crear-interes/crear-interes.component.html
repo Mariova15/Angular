@@ -1,16 +1,18 @@
-<app-navigation-bar [estado]="true" ></app-navigation-bar>
+<app-navigation-bar [estado]="true"></app-navigation-bar>
+<div>
 <form class="example-form">
-<mat-form-field>
-    <input matInput placeholder="Nombre del interes" name=[nomInteres] [(ngModel)] = "nomInteres">
-</mat-form-field>
-<mat-form-field>
-    <input matInput placeholder="Descripción" name=[descripcion] [(ngModel)] = "descripcion">
-</mat-form-field>
-<mat-form-field>
-    <input matInput placeholder="Importancia" name=[importancia]  [(ngModel)] = "importancia">    
-</mat-form-field>
-<mat-slider placeholder="Importancia" thumbLabel tickInterval="interval" min="1" max="10" 
-name=[importancia]  [(ngModel)] = "importancia"></mat-slider>
-<button mat-button (click)="annadirInteres()">Añadir interes</button>
-<button mat-button (click)="backClicked()">Cancelar</button>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre del interes" name=[nomInteres] [(ngModel)]="nomInteres">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Descripción" name=[descripcion] [(ngModel)]="descripcion">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Importancia" name=[importancia] [(ngModel)]="importancia">
+      </mat-form-field>
+  <mat-slider placeholder="Importancia" thumbLabel tickInterval="interval" min="1" max="10" name=[importancia]
+    [(ngModel)]="importancia"></mat-slider>
+  <button mat-button (click)="annadirInteres()">Añadir interes</button>
+  <button mat-button (click)="backClicked()">Cancelar</button>
 </form>
+</div>

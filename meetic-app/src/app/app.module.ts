@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
+import {MatListModule} from '@angular/material/list';
 
 import { ListaPersonasComponent } from './componentes/persona/lista-personas/lista-personas.component';
 import { PersonaListaComponent } from './componentes/persona/persona-lista/persona-lista.component';
@@ -52,7 +53,8 @@ import { FiltrarPersonasComponent } from './componentes/filtrar-personas/filtrar
     FormsModule,
     MatSliderModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
