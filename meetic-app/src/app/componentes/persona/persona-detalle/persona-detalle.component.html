@@ -1,40 +1,48 @@
 <app-navigation-bar [estado]="true"></app-navigation-bar>
 <div>
-  <div>
-    <h1>{{persona.nombre}}</h1>
+  <div class="container">
+    <div class="top-left">
+      <h1>{{persona.nombre}}</h1>
+      <h2>{{persona.edad}} años, {{persona.ciudad}}</h2>
+    </div>
+    <div class="top-right">
+        <mat-icon>favorite</mat-icon>
+        <p>{{persona.numVotos}}</p>
+    </div>
 
-    <mat-icon>favorite</mat-icon>
-    <p>{{persona.numVotos}}</p>
-
-    <h2>{{persona.edad}} años, {{persona.ciudad}}</h2>
     <img src={{persona.foto}} />
   </div>
-  <div>
+  <div class="centrar">
     <h1>Información básica</h1>
     <p>Telef: {{persona.telefono}}</p>
     <p>Email: {{persona.email}}</p>
     <p>Hijos: {{persona.hijos}}</p>
     <p>Dirección: {{persona.direccion}}</p>
   </div>
-  <div>
+  <div class="centrar">
     <h1>Mis intereses</h1>
     <button mat-fab [routerLink]="['/crear-interes',persona.codigo]">
       <mat-icon>add</mat-icon>
     </button>
     <mat-list style="display:block;width: 38%;margin:auto">
       <div *ngFor="let interes of persona.intereses">
-        <app-interes-lista [interes]="interes" [persona]="persona">
-        </app-interes-lista>
+        <ng-container *ngIf="this.persona.intereses.length > 0; else elseTemplate">
+          <app-interes-lista [interes]="interes" [persona]="persona">
+          </app-interes-lista>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <h1> AÚN NO HAY INTERESES</h1>
+        </ng-template>
       </div>
     </mat-list>
 
   </div>
-  <div>
+  <div class="centrar">
     <button mat-fab color="primary" (click)="votar()">
       <mat-icon>favorite</mat-icon>
       <p>{{persona.numVotos}}</p>
     </button>
-    <button mat-fab color="primary" [routerLink] = "['/mandar-email', persona.codigo]">
+    <button mat-fab color="primary" [routerLink]="['/mandar-email', persona.codigo]">
       <mat-icon>email</mat-icon>
     </button>
   </div>

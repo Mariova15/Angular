@@ -12,18 +12,29 @@ import { Location } from '@angular/common' ;
 export class MandarEmailComponent implements OnInit {
 
   persona:Persona;
+  enviando:string;
+  nombre:string;
+  email:string;
   mensaje:string;
+  mostrarBotones:boolean = true;
 
   constructor(private _route:ActivatedRoute,  private _servicioListaPersonas:ListaUsuariosService, private _location: Location) { }
 
   ngOnInit() {
     this.persona = this._servicioListaPersonas.getPersona(Number(this._route.snapshot.paramMap.get('destinatario')));
+    this.nombre = this.persona.nombre;
+    this.email = this.persona.email;
   }
 
   enviarMail(){
-    this.mensaje = "ENVIADO";
+    this.mostrarBotones = false;
+    this.enviando = "ENVIADO";
+    this.nombre = "";
+    this.email = "";
+    this.mensaje = "";
     setTimeout(() => {
-      this.mensaje = "";
+      this.mostrarBotones = true;
+      this.enviando = "";
       this._location.back();
       }, 2000);     
   }

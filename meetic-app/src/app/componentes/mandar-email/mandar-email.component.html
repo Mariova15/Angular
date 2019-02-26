@@ -3,20 +3,25 @@
     <form class="example-form">
   <h1>Nombre:</h1>
   <mat-form-field>
-    <input matInput placeholder="Nombre" value="{{persona.nombre}}" >
+    <input matInput placeholder="Nombre" value="{{nombre}}" name=[nombre] [(ngModel)]="nombre">
   </mat-form-field>
   <h1>Correo:</h1>
   <mat-form-field>
-    <input matInput placeholder="Correo" value="{{persona.email}}" >
+    <input matInput placeholder="Correo" value="{{email}}" name=[email] [(ngModel)]="email">
   </mat-form-field>
   <h1>Mensaje:</h1>
   <mat-form-field>
-    <textarea matInput placeholder="Mensaje"></textarea>
+    <textarea matInput placeholder="Mensaje" value="{{mensaje}}" 
+    name=[mensaje] [(ngModel)]="mensaje"></textarea>
   </mat-form-field>
   <br>
-  <button mat-button (click)="enviarMail()">Añadir interes</button>
-  <button mat-button (click)="backClicked()">Cancelar</button>
+  <ng-container *ngIf="this.mostrarBotones">
+      <button mat-button (click)="enviarMail()">Enviar email</button>
+      <button mat-button (click)="backClicked()">Cancelar</button>
+  </ng-container>
+ 
+  
   <br>
-  <h1>{{mensaje}}</h1>
+  <h1>{{enviando}}</h1>
 </form>
 </div>
