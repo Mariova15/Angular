@@ -10,7 +10,7 @@
 
 .top-left {
   position: absolute;
-  top: 0%;
+  top: 8%;
   left: 30%;
 }
 
@@ -21,3 +21,14 @@
 .container>img {
     width: 25%;
   }
+img{
+  width: 25%;
+}
+
+.lista{
+  display:block;
+  width: 38%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+

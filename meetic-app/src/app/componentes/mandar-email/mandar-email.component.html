@@ -15,12 +15,10 @@
     name=[mensaje] [(ngModel)]="mensaje"></textarea>
   </mat-form-field>
   <br>
-  <ng-container *ngIf="this.mostrarBotones">
+  <ng-container *ngIf="mostrarBotones">
       <button mat-button (click)="enviarMail()">Enviar email</button>
       <button mat-button (click)="backClicked()">Cancelar</button>
   </ng-container>
- 
-  
   <br>
   <h1>{{enviando}}</h1>
 </form>
