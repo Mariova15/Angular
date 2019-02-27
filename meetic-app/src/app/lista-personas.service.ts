@@ -152,38 +152,22 @@ export class ListaUsuariosService {
     return match;
   }
 
-  getListaPersonasFiltradaCompleto(
-    localidad?: string,
-    interesUsuario?: string[],
-    edadInicio?: number,
-    edadFin?: number
-  ): Persona[] {
+  getListaPersonasFiltradaCompleto(localidad: string,interesUsuario: string[],
+    edadInicio: number,edadFin: number): Persona[] {
     listaPersonasFiltradas = [];
     LISTA_PERSONAS.forEach(persona => {
-      if (localidad) {
-        if (localidad == persona.direccion) {
-          if (!listaPersonasFiltradas.includes(persona)) {
-            listaPersonasFiltradas.push(persona);
-          }
-        }
-      }
-      if (edadInicio && edadFin) {
-        if (persona.edad >= edadInicio && persona.edad <= edadFin) {
-          if (!listaPersonasFiltradas.includes(persona)) {
-            listaPersonasFiltradas.push(persona);
-          }
-        }
-      }
-      if (interesUsuario) {
-        persona.intereses.forEach(interesPersona => {
-          interesUsuario.forEach(interesUser => {
-            if (interesUser === interesPersona.nombreInteres) {
-              if (!listaPersonasFiltradas.includes(persona)) {
-                listaPersonasFiltradas.push(persona);
+      if(persona.direccion == localidad){
+        if(persona.edad >= edadInicio && persona.edad <= edadFin){
+          persona.intereses.forEach(interesPersona => {
+            interesUsuario.forEach(interesUser => {
+              if (interesUser === interesPersona.nombreInteres) {
+                if (!listaPersonasFiltradas.includes(persona)) {
+                  listaPersonasFiltradas.push(persona);
+                }
               }
-            }
+            });
           });
-        });
+        }
       }
     });
 

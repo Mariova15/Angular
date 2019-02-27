@@ -29,7 +29,6 @@ export class NavigationBarComponent implements OnInit {
 
   emparejar(){
     this.resultadoemparejar = this._servicioListaPersonas.emparejar();
-    alert(this.resultadoemparejar);
     this.router.navigate(['/detalle-persona', this.resultadoemparejar]);
   }
 
