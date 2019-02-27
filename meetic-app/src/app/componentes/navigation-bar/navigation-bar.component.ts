@@ -15,7 +15,7 @@ export class NavigationBarComponent implements OnInit {
   @Input() estado:boolean;
   @Input() nomCiudad:string;
   @Input() contador:string;
-  resultadoemparejar:number;
+  private resultadoemparejar:number;
 
   constructor(private _location: Location, private _servicioListaPersonas:ListaUsuariosService,
      private router: Router) { }

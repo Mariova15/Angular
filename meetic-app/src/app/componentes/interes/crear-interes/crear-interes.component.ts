@@ -12,11 +12,11 @@ import { Persona } from 'src/app/modelo/Persona';
 })
 export class CrearInteresComponent implements OnInit {
 
-  interes:Interes;
-  nomInteres:string;
-  descripcion:string;
-  importancia:string;
-  persona:Persona;
+  private interes:Interes;
+  private nomInteres:string;
+  private descripcion:string;
+  private importancia:string;
+  private persona:Persona;
 
   constructor(private _route:ActivatedRoute, private _servicioListaPersonas:ListaUsuariosService,private _location: Location) {    
    }

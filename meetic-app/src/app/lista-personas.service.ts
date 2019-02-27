@@ -181,4 +181,28 @@ export class ListaUsuariosService {
   getListaPersonasFiltradas(): Persona[] {
     return listaPersonasFiltradas;
   }
+
+  getLocalidades(): string[]{
+    let localidades = [];
+    LISTA_PERSONAS.forEach(persona => {
+      if(!localidades.includes(persona.direccion)){
+        localidades.push(persona.direccion);
+      }
+        
+    });
+    return localidades;
+  }
+
+  getIntereses(): string[]{
+    let intereses = [];
+    LISTA_PERSONAS.forEach(persona => {
+      persona.intereses.forEach(interes => {
+        if(!intereses.includes(interes.nombreInteres)){
+          intereses.push(interes.nombreInteres);
+        }
+      });
+    });
+    return intereses;
+  }
+
 }

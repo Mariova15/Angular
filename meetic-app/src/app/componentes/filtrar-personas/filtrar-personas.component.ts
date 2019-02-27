@@ -7,17 +7,23 @@ import { ListaUsuariosService } from "src/app/lista-personas.service";
   styleUrls: ["./filtrar-personas.component.css"]
 })
 export class FiltrarPersonasComponent implements OnInit {
-  localidades: string[] = ["Sama", "La felguera", "El entrego"];
-  intereses: string[] = ["Música", "Cine", "Deporte","Literatura"];
 
-  localidadUser: string;
-  edadInicio: string;
-  edadFin: string;
-  interesesUser: string[];
+  private localidades: string[];
+  private intereses: string[];
+
+  private localidadUser: string;
+  private edadInicio: string;
+  private edadFin: string;
+  private interesesUser: string[];
 
   constructor(private _servicioListaPersonas: ListaUsuariosService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.localidades = this._servicioListaPersonas.getLocalidades();
+    this.intereses = this._servicioListaPersonas.getIntereses();
+
+  }
 
   filtrar() {
     this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidadUser,this.interesesUser,

@@ -11,12 +11,12 @@ import { Location } from '@angular/common' ;
 })
 export class MandarEmailComponent implements OnInit {
 
-  persona:Persona;
-  enviando:string;
-  nombre:string;
-  email:string;
-  mensaje:string;
-  mostrarBotones:boolean = true;
+  private persona:Persona;
+  private enviando:string;
+  private nombre:string;
+  private email:string;
+  private mensaje:string;
+  private mostrarBotones:boolean = true;
 
   constructor(private _route:ActivatedRoute,  private _servicioListaPersonas:ListaUsuariosService, private _location: Location) { }
 

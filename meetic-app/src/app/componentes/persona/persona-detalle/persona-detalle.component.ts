@@ -10,7 +10,7 @@ import { ListaUsuariosService } from 'src/app/lista-personas.service';
 })
 export class PersonaDetalleComponent implements OnInit {
 
-  persona:Persona;
+  private persona:Persona;
 
   constructor(private _route:ActivatedRoute,  private _servicioListaPersonas:ListaUsuariosService) { }
 
