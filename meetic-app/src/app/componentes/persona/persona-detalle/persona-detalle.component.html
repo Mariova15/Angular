@@ -14,15 +14,15 @@
       <p class="centrar"> <img mat-card-image src="{{persona.foto}}"></p>
     </mat-card-content>
   </mat-card>
-  <div class="centrar">
+  <div class="datos">
     <h1>Información básica</h1>
-    <p>Telef: {{persona.telefono}}</p>
+    <p>Teléfono: {{persona.telefono}}</p>
     <p>Email: {{persona.email}}</p>
     <ng-container *ngIf="persona.hijos; else elseHijosSi">
       <p>Hijos: Si</p>
     </ng-container>
     <ng-template #elseHijosSi>
-      <ng-container *ngIf="!persona.hijos; else elseHijosNo">
+      <ng-container *ngIf="persona.hijos != undefined; else elseHijosNo">
         <p>Hijos: No</p>
       </ng-container>
       <ng-template #elseHijosNo>

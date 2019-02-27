@@ -89,11 +89,16 @@ const usuario: Persona = new Persona(
 LISTA_PERSONAS.forEach(persona => {
   persona.intereses.push(interes);
   persona.intereses.push(interes2);
-  persona.intereses.push(interes3);
-  persona.intereses.push(interes4);
 });
 
-LISTA_PERSONAS[1].intereses.push(interes5);
+LISTA_PERSONAS[3].intereses.push(interes3);
+LISTA_PERSONAS[3].intereses.push(interes4);
+LISTA_PERSONAS[3].intereses.push(interes5);
+usuario.intereses.push(interes);
+usuario.intereses.push(interes2);
+usuario.intereses.push(interes3);
+usuario.intereses.push(interes4);
+usuario.intereses.push(interes5);
 
 @Injectable({
   providedIn: "root"
@@ -124,6 +129,29 @@ export class ListaUsuariosService {
     return listaPersonasFiltradas;
   }
 
+  emparejar(): number {
+    let compatibilidad = usuario.intereses.length * 0.8;
+    let match = -1;
+    LISTA_PERSONAS.forEach(persona => {
+      if (persona.sexo != usuario.sexo) {
+        let nivelCompatibilidad = 0;
+        usuario.intereses.forEach(interesUsuario => {
+          persona.intereses.forEach(interesPersona => {
+            
+            if(interesUsuario.nombreInteres == interesPersona.nombreInteres){
+              nivelCompatibilidad += 1;
+            }
+
+          });
+        });
+        if(nivelCompatibilidad >= compatibilidad){
+          match = persona.codigo;
+        }
+      }
+    });
+    return match;
+  }
+
   getListaPersonasFiltradaCompleto(
     localidad?: string,
     interesUsuario?: string[],
@@ -131,17 +159,14 @@ export class ListaUsuariosService {
     edadFin?: number
   ): Persona[] {
     listaPersonasFiltradas = [];
-
     LISTA_PERSONAS.forEach(persona => {
-
-      if(localidad){
-      if (localidad == persona.direccion) {
-        if (!listaPersonasFiltradas.includes(persona)) {
-          listaPersonasFiltradas.push(persona);
+      if (localidad) {
+        if (localidad == persona.direccion) {
+          if (!listaPersonasFiltradas.includes(persona)) {
+            listaPersonasFiltradas.push(persona);
+          }
         }
       }
-    }
-
       if (edadInicio && edadFin) {
         if (persona.edad >= edadInicio && persona.edad <= edadFin) {
           if (!listaPersonasFiltradas.includes(persona)) {
@@ -149,18 +174,17 @@ export class ListaUsuariosService {
           }
         }
       }
-
-      if(interesUsuario){
-      persona.intereses.forEach(interesPersona => {
-        interesUsuario.forEach(interesUser => {
-          if (interesUser === interesPersona.nombreInteres) {
-            if (!listaPersonasFiltradas.includes(persona)) {
-              listaPersonasFiltradas.push(persona);
+      if (interesUsuario) {
+        persona.intereses.forEach(interesPersona => {
+          interesUsuario.forEach(interesUser => {
+            if (interesUser === interesPersona.nombreInteres) {
+              if (!listaPersonasFiltradas.includes(persona)) {
+                listaPersonasFiltradas.push(persona);
+              }
             }
-          }
+          });
         });
-      });
-    }
+      }
     });
 
     return listaPersonasFiltradas;

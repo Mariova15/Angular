@@ -2,7 +2,12 @@
 <div>
   <img mat-card-image class="foto" src={{persona.foto}}>
   <p>{{persona.nombre}} {{persona.numVotos}}
-    <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    <ng-container *ngIf="persona.numVotos > 0; else elseTemplate">
+        <mat-icon style="color:red" >favorite</mat-icon>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <mat-icon>favorite</mat-icon>
+    </ng-template>
   </p>  
   <p>{{persona.edad}} años</p>
 </div>
