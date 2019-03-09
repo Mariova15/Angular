@@ -5,12 +5,14 @@ import { Interes } from "./modelo/Interes";
 const urlFoto: string = "https://bit.ly/2sNhJiO";
 
 let listaPersonasFiltradas: Persona[];
+let ciudadToolbar: string;
 
-const interes: Interes = new Interes("Música", "string", 5);
-const interes2: Interes = new Interes("Cine", "string", 5);
-const interes3: Interes = new Interes("Deporte", "string", 5);
-const interes4: Interes = new Interes("Fiesta", "string", 5);
-const interes5: Interes = new Interes("Literatura", "string", 5);
+//Interes de pruebaAPP
+const LISTA_INTERESES: Interes[] = [
+  new Interes("Deporte", "string", 5),
+  new Interes("Fiesta", "string", 5),
+  new Interes("Literatura", "string", 5)
+];
 
 const LISTA_PERSONAS: Persona[] = [
   new Persona(
@@ -86,19 +88,18 @@ const usuario: Persona = new Persona(
   "La felguera"
 );
 
-LISTA_PERSONAS.forEach(persona => {
-  persona.intereses.push(interes);
-  persona.intereses.push(interes2);
+LISTA_INTERESES.forEach(interesAnnadir => {
+  usuario.intereses.push(interesAnnadir);
+  LISTA_PERSONAS.forEach(persona => {
+    persona.intereses.push(interesAnnadir);
+  });
 });
 
-LISTA_PERSONAS[3].intereses.push(interes3);
-LISTA_PERSONAS[3].intereses.push(interes4);
-LISTA_PERSONAS[3].intereses.push(interes5);
-usuario.intereses.push(interes);
-usuario.intereses.push(interes2);
-usuario.intereses.push(interes3);
-usuario.intereses.push(interes4);
-usuario.intereses.push(interes5);
+//Interes para prueba de APP
+LISTA_PERSONAS[3].intereses.push(new Interes("Música", "string", 5));
+LISTA_PERSONAS[3].intereses.push(new Interes("Cine", "string", 5));
+usuario.intereses.push(new Interes("Música", "string", 5));
+usuario.intereses.push(new Interes("Cine", "string", 5));
 
 @Injectable({
   providedIn: "root"
@@ -137,14 +138,12 @@ export class ListaUsuariosService {
         let nivelCompatibilidad = 0;
         usuario.intereses.forEach(interesUsuario => {
           persona.intereses.forEach(interesPersona => {
-            
-            if(interesUsuario.nombreInteres == interesPersona.nombreInteres){
+            if (interesUsuario.nombreInteres == interesPersona.nombreInteres) {
               nivelCompatibilidad += 1;
             }
-
           });
         });
-        if(nivelCompatibilidad >= compatibilidad){
+        if (nivelCompatibilidad >= compatibilidad) {
           match = persona.codigo;
         }
       }
@@ -152,11 +151,16 @@ export class ListaUsuariosService {
     return match;
   }
 
-  getListaPersonasFiltradaCompleto(localidad: string,interesUsuario: string[],
-    edadInicio: number,edadFin: number): Persona[] {
+  getListaPersonasFiltradaCompleto(
+    localidad?: string,
+    interesUsuario?: string[],
+    edadInicio?: number,
+    edadFin?: number
+  ): Persona[] {
+    /*ciudadToolbar = localidad;
     listaPersonasFiltradas = [];
     LISTA_PERSONAS.forEach(persona => {
-      if(persona.direccion == localidad){
+      if(persona.direccion == localidad){        
         if(persona.edad >= edadInicio && persona.edad <= edadFin){
           persona.intereses.forEach(interesPersona => {
             interesUsuario.forEach(interesUser => {
@@ -169,7 +173,41 @@ export class ListaUsuariosService {
           });
         }
       }
-    });
+    });*/
+
+    listaPersonasFiltradas = [];
+    let listaPersonatemp = [];
+
+    if (localidad) {
+      ciudadToolbar = localidad;
+      listaPersonasFiltradas = LISTA_PERSONAS.filter(
+        personaFiltrarLocalidad =>
+          personaFiltrarLocalidad.direccion == localidad
+      );
+    } else {
+      ciudadToolbar = "Sin ciudad";
+      listaPersonasFiltradas = LISTA_PERSONAS.slice(0);
+    }
+
+    if (interesUsuario) {
+      listaPersonasFiltradas.forEach(personaFiltrarInteres => {
+        interesUsuario.forEach(interesComprobar => {
+          personaFiltrarInteres.intereses.forEach(interesesPersona => {
+            if(interesComprobar == interesesPersona.nombreInteres){
+              if(!listaPersonatemp.includes(personaFiltrarInteres)){
+                listaPersonatemp.push(personaFiltrarInteres);
+              };
+            };
+          });
+        });
+      });
+      listaPersonasFiltradas = listaPersonatemp;
+    }
+
+    if(edadInicio && edadFin){
+      listaPersonasFiltradas = listaPersonasFiltradas.filter(
+        personaFiltrarEdad => personaFiltrarEdad.edad >= edadInicio && personaFiltrarEdad.edad <= edadFin)
+    }
 
     return listaPersonasFiltradas;
   }
@@ -182,27 +220,42 @@ export class ListaUsuariosService {
     return listaPersonasFiltradas;
   }
 
-  getLocalidades(): string[]{
+  getLocalidades(): string[] {
     let localidades = [];
     LISTA_PERSONAS.forEach(persona => {
-      if(!localidades.includes(persona.direccion)){
+      if (!localidades.includes(persona.direccion)) {
         localidades.push(persona.direccion);
       }
-        
     });
     return localidades;
   }
 
-  getIntereses(): string[]{
+  getIntereses(): string[] {
     let intereses = [];
     LISTA_PERSONAS.forEach(persona => {
       persona.intereses.forEach(interes => {
-        if(!intereses.includes(interes.nombreInteres)){
+        if (!intereses.includes(interes.nombreInteres)) {
           intereses.push(interes.nombreInteres);
+        }
+      });
+
+      usuario.intereses.forEach(interesUsuario => {
+        if (!intereses.includes(interesUsuario.nombreInteres)) {
+          intereses.push(interesUsuario.nombreInteres);
         }
       });
     });
     return intereses;
   }
 
+  getciudad(): string {
+    if (ciudadToolbar == undefined) {
+      ciudadToolbar = usuario.direccion;
+    }
+    return ciudadToolbar;
+  }
+
+  borrarCiudad() {
+    ciudadToolbar = "Sin ciudad";
+  }
 }

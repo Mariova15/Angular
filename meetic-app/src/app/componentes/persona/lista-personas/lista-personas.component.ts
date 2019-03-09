@@ -11,12 +11,14 @@ import { ListaUsuariosService } from 'src/app/lista-personas.service';
 export class ListaPersonasComponent implements OnInit {
 
   private listaPersonas:Persona[];
-  private usuarioApplicacion:Persona;  
+  private usuarioApplicacion:Persona;
+  private ciudad:string;  
 
   constructor(private _router:Router, private _servicioListaPersonas:ListaUsuariosService) { 
   }
 
   ngOnInit() {
+    this.ciudad = this._servicioListaPersonas.getciudad();
     this.usuarioApplicacion = this._servicioListaPersonas.getUsuario();
     if(this._servicioListaPersonas.getListaPersonasFiltradas() != null){
       this.listaPersonas = this._servicioListaPersonas.getListaPersonasFiltradas();

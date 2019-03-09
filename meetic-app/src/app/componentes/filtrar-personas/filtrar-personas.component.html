@@ -14,13 +14,13 @@
 </mat-form-field>
 <h4>Edad entre</h4>
 <mat-form-field>
-  <input matInput type="number" placeholder="21" name=[edadInicio] [(ngModel)] = "edadInicio">
+  <input matInput type="number" name=[edadInicio] [(ngModel)] = "edadInicio">
 </mat-form-field>
 <span>y</span>
 <mat-form-field>
-  <input matInput type="number" placeholder="45" name=[edadFin] [(ngModel)] = "edadFin">
+  <input matInput type="number" name=[edadFin] [(ngModel)] = "edadFin">
 </mat-form-field>
 <br>
 <button mat-button (click)="filtrar()">Filtrar</button>
-<button mat-button (click)="eliminarFiltro()" [routerLink]="['/home']" >Quitar filtro</button>
+<button mat-button (click)="eliminarFiltro()" [routerLink]="['/home']">Quitar filtro</button>
 </div>

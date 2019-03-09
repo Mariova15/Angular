@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ListaUsuariosService } from "src/app/lista-personas.service";
+import { Location } from '@angular/common' ;
 
 @Component({
   selector: "app-filtrar-personas",
@@ -16,7 +17,7 @@ export class FiltrarPersonasComponent implements OnInit {
   private edadFin: string;
   private interesesUser: string[];
 
-  constructor(private _servicioListaPersonas: ListaUsuariosService) {}
+  constructor(private _servicioListaPersonas: ListaUsuariosService, private _location: Location) {}
 
   ngOnInit() {
 
@@ -28,9 +29,12 @@ export class FiltrarPersonasComponent implements OnInit {
   filtrar() {
     this._servicioListaPersonas.getListaPersonasFiltradaCompleto(this.localidadUser,this.interesesUser,
         Number(this.edadInicio), Number(this.edadFin));
+        this._location.back();
         
   }
   eliminarFiltro(){
     this._servicioListaPersonas.eliminarFiltro();
+    this._servicioListaPersonas.borrarCiudad();
+    this._location.back();
   }
 }

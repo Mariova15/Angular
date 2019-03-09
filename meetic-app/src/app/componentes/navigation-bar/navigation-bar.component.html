@@ -4,16 +4,16 @@
           <h1 (click)="backClicked()">Back</h1>
       </mat-toolbar-row>
   </ng-container>
-  <ng-template #elseTemplate>
+  <ng-template #elseTemplate>    
           <mat-toolbar-row>
                   <h1>{{nomCiudad}}</h1>
                   <span class="fill-remaining-space"></span>
                   <h1>{{contador}}</h1>
                   <span class="fill-remaining-space"></span>
                   <button mat-button (click) = "emparejar()">Emparejar</button>
-                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
                     <mat-icon>more_vert</mat-icon>
-                  </button>
+                  </button>                  
                   <mat-menu #menu="matMenu">
                     <button mat-menu-item [routerLink] = "['/home']">
                       <mat-icon>home</mat-icon>
@@ -27,7 +27,22 @@
                       <mat-icon>account_box</mat-icon>
                       <span>Perfil</span>
                     </button>
-                  </mat-menu>        
-                </mat-toolbar-row> 
+                  </mat-menu> -->
+                <div>
+                    <button mat-button [routerLink] = "['/home']">
+                      <mat-icon>home</mat-icon>
+                      <span>Home</span>
+                    </button>
+                    <button mat-button [routerLink] = "['/filtrar-personas']" >
+                      <mat-icon>filter_list</mat-icon>
+                      <span>Filtrar</span>
+                    </button>
+                    <button mat-button [routerLink] = "['/detalle-persona', -1]" >
+                      <mat-icon>account_box</mat-icon>
+                      <span>Perfil</span>
+                    </button>
+                </div>        
+                </mat-toolbar-row>               
+                
   </ng-template>
 </mat-toolbar>

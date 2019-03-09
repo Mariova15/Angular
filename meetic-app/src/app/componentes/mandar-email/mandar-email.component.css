@@ -1,14 +1,9 @@
 .example-form {
-    width: 100%;
     text-align: center;
   }
   
   div{
     display: block;
     margin: auto;
-    width: 38%;
-  }
-  
-  .example-full-width {
     width: 100%;
   }

@@ -29,6 +29,7 @@ export class CrearInteresComponent implements OnInit {
   annadirInteres(){
     this.interes = new Interes(this.nomInteres,this.descripcion,Number(this.importancia));  
       this.persona.intereses.push(this.interes);
+      this._location.back();
   }
 
   

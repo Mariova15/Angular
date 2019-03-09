@@ -1,6 +1,7 @@
 <mat-card [ngClass]="{'borde-rojo': this.persona.intereses.length > 4}"> 
 <div>
   <img mat-card-image class="foto" src={{persona.foto}}>
+  <mat-card-content>
   <p>{{persona.nombre}} {{persona.numVotos}}
     <ng-container *ngIf="persona.numVotos > 0; else elseTemplate">
         <mat-icon style="color:red" >favorite</mat-icon>
@@ -10,5 +11,6 @@
     </ng-template>
   </p>  
   <p>{{persona.edad}} años</p>
+</mat-card-content>
 </div>
 </mat-card>
