@@ -132,7 +132,7 @@ export class ListaUsuariosService {
 
   emparejar(): number {
     let compatibilidad = usuario.intereses.length * 0.8;
-    let match = -1;
+    let match = -2;
     LISTA_PERSONAS.forEach(persona => {
       if (persona.sexo != usuario.sexo) {
         let nivelCompatibilidad = 0;

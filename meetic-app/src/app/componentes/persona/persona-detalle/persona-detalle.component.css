@@ -1,4 +1,4 @@
-.centrar{
+.centrar {
   text-align: center;
 }
 
@@ -18,22 +18,34 @@
   position: relative;
   text-align: center;
 }
+
 .container>img {
-    width: 25%;
-  }
-img{
   width: 25%;
 }
 
-.lista{
-  display:block;
+img {
+  width: 25%;
+}
+
+.lista {
+  display: block;
   width: 38%;
   margin-left: 25%;
   margin-right: 25%;
 }
-.datos{
-  display:block;
+
+.datos {
+  display: block;
   width: 38%;
   margin-left: 38%;
   margin-right: 38%;
+}
+
+.noPareja {
+  position: relative;
+  top: 38%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
 }

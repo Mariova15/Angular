@@ -1,60 +1,69 @@
 <app-navigation-bar [estado]="true"></app-navigation-bar>
-<div>
-  <mat-card>
-    <mat-card-header>
-      <div class="top-left">
-        <mat-card-title>{{persona.nombre}}</mat-card-title>
-        <mat-card-subtitle>{{persona.edad}} años, {{persona.direccion}}</mat-card-subtitle>
-      </div>
-      <mat-card-title class="top-right">
-        {{persona.numVotos}} <mat-icon>favorite</mat-icon>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p class="centrar"> <img mat-card-image src="{{persona.foto}}"></p>
-    </mat-card-content>
-  </mat-card>
-  <div class="datos">
-    <h1>Información básica</h1>
-    <p>Teléfono: {{persona.telefono}}</p>
-    <p>Email: {{persona.email}}</p>
-    <ng-container *ngIf="persona.hijos; else elseHijosSi">
-      <p>Hijos: Si</p>
-    </ng-container>
-    <ng-template #elseHijosSi>
-      <ng-container *ngIf="persona.hijos != undefined; else elseHijosNo">
-        <p>Hijos: No</p>
-      </ng-container>
-      <ng-template #elseHijosNo>
-        <p>Hijos: {{persona.hijos}}</p>
-      </ng-template>
-    </ng-template>
-
-    <p>Dirección: {{persona.direccion}}</p>
-  </div>
-  <div class="centrar">
-    <h1>Mis intereses</h1>
-    <button mat-fab [routerLink]="['/crear-interes',persona.codigo]">
-      <mat-icon>add</mat-icon>
-    </button>
-    <mat-list class="lista">
-      <ng-container *ngIf="this.persona.intereses.length > 0; else elseTemplate">
-        <div *ngFor="let interes of persona.intereses">
-          <app-interes-lista [interes]="interes" [persona]="persona">
-          </app-interes-lista>
+<ng-container *ngIf="pareja; else noPareja">
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <div class="top-left">
+          <mat-card-title>{{persona.nombre}}</mat-card-title>
+          <mat-card-subtitle>{{persona.edad}} años, {{persona.direccion}}</mat-card-subtitle>
         </div>
+        <mat-card-title class="top-right">
+          {{persona.numVotos}} <mat-icon>favorite</mat-icon>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="centrar"> <img mat-card-image src="{{persona.foto}}"></p>
+      </mat-card-content>
+    </mat-card>
+    <div class="datos">
+      <h1>Información básica</h1>
+      <p>Teléfono: {{persona.telefono}}</p>
+      <p>Email: {{persona.email}}</p>
+      <ng-container *ngIf="persona.hijos; else elseHijosSi">
+        <p>Hijos: Si</p>
       </ng-container>
-      <ng-template #elseTemplate>
-        <h1> AÚN NO HAY INTERESES</h1>
+      <ng-template #elseHijosSi>
+        <ng-container *ngIf="persona.hijos != undefined; else elseHijosNo">
+          <p>Hijos: No</p>
+        </ng-container>
+        <ng-template #elseHijosNo>
+          <p>Hijos: {{persona.hijos}}</p>
+        </ng-template>
       </ng-template>
-    </mat-list>
+  
+      <p>Dirección: {{persona.direccion}}</p>
+    </div>
+    <div class="centrar">
+      <h1>Mis intereses</h1>
+      <button mat-fab [routerLink]="['/crear-interes',persona.codigo]">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-list class="lista">
+        <ng-container *ngIf="this.persona.intereses.length > 0; else elseTemplate">
+          <div *ngFor="let interes of persona.intereses">
+            <app-interes-lista [interes]="interes" [persona]="persona">
+            </app-interes-lista>
+          </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <h1> AÚN NO HAY INTERESES</h1>
+        </ng-template>
+      </mat-list>
+    </div>
+    <div class="centrar">
+      <button mat-fab color="primary" (click)="votar()">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-fab color="primary" [routerLink]="['/mandar-email', persona.codigo]">
+        <mat-icon>email</mat-icon>
+      </button>
+    </div>
   </div>
-  <div class="centrar">
-    <button mat-fab color="primary" (click)="votar()">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-fab color="primary" [routerLink]="['/mandar-email', persona.codigo]">
-      <mat-icon>email</mat-icon>
-    </button>
+</ng-container>
+<ng-template #noPareja>
+  <div class="noPareja">
+    <h1>NO SE ENCUENTRA PAREJA</h1>
   </div>
-</div>
+</ng-template>
+
+

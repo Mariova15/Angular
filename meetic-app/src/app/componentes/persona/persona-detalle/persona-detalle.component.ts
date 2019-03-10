@@ -11,13 +11,18 @@ import { ListaUsuariosService } from 'src/app/lista-personas.service';
 export class PersonaDetalleComponent implements OnInit {
 
   private persona:Persona;
+  private pareja:boolean = true;
 
   constructor(private _route:ActivatedRoute,  private _servicioListaPersonas:ListaUsuariosService) { }
 
   ngOnInit() {
     if(Number(this._route.snapshot.paramMap.get('info')) === -1){
       this.persona = this._servicioListaPersonas.getUsuario();
+      this.pareja = true;
+    }else if (Number(this._route.snapshot.paramMap.get('info')) === -2){
+      this.pareja = false;
     }else{
+      this.pareja = true;
       this.persona = this._servicioListaPersonas.getPersona(Number(this._route.snapshot.paramMap.get('info')));
     }    
   }
